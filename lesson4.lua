@@ -3,9 +3,8 @@
 local localTable = { 1, 2, 3, 4 }
 local a = "My name is Michael"
 
-
-local transform = function (tab, func)
-    -- print("transform start")
+--- Transform table using function (modifies input table)
+local function transform(tab, func)
     for key, value in pairs(tab) do
         tab[key] = func(value)
     end
@@ -26,7 +25,9 @@ print("User name = " .. name)
 dofile("functions.lua")
 
 DisplayTable("Dump Table :", localTable)
-transform(localTable, function (x) return x * 1.5 end)
+transform(localTable, function (x) 
+    return x * 1.5
+end)
 DisplayTable("After Transform :", localTable)
 
 DisplayTable("Another Table :", { fname = "Michael", lname = "Uman"} )
