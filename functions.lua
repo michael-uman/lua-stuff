@@ -29,3 +29,18 @@ function DisplayTable(title, tab)
     print(line)
 end
 
+--- Transform table using function (modifies input table)
+function Transform_inplace(tab, func)
+    for key, value in pairs(tab) do
+        tab[key] = func(value)
+    end
+end
+
+--- Transform table using function (returns new table)
+function Transform(tab, func)
+    local new_table = {}
+    for key, value in pairs(tab) do
+        new_table[key] = func(value)
+    end
+    return new_table
+end
