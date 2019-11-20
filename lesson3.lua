@@ -15,24 +15,36 @@ OperatorTable = {
                 accum = value
             else
                 accum = accum - value
-            end 
+            end
         end
         return accum
     end,
     mlt = function(...)
+        local accum = 0
         for key, value in pairs({...}) do
-            
-        end    end,
-    div = function(...)
-        for key, value in pairs({...}) do
-            
+            if key == 1 then
+                accum = value
+            else
+                accum = accum * value
+            end
         end
+        return accum
+    end,
+    div = function(...)
+        local accum = 0
+        for key, value in pairs({...}) do
+            if key == 1 then
+                accum = value
+            else
+                accum = accum / value
+            end
+        end
+        return accum
     end,
 }
 
 local ops = OperatorTable
 
-print(ops.add(1,2,3,4))
-
-
-print(ops.sub(10,2,4,1))
+print("Add : " .. ops.add(1, 2, 3, 4))
+print("Sub : " .. ops.sub(10, 2, 4, 1))
+print("Div : " .. ops.div(20, 5, 2))
