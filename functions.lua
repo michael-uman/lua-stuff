@@ -1,5 +1,6 @@
 -- functions
 
+--- Display a table to the console.
 function DisplayTable(title, tab)
     local line = "{ "
     local index = 1
@@ -15,6 +16,7 @@ function DisplayTable(title, tab)
             dispvalue = value
         end
 
+        -- Add comma separator if this is not the 1st value
         if index ~= 1 then
             line = line .. ", "
         end
