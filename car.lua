@@ -1,23 +1,29 @@
 
 
 Car = {
-	make = "",
-	model = "",
-	year = 2020,
+	_make = "",
+	_model = "",
+	_year = 2020,
 }
+
 
 function Car:new(make, model, year)
 	local o = {}
 	setmetatable(o, self)
 	self.__index = self
 
-	o.make = make
-	o.model = model or "Undefined"
-	o.year = year or 2020
+	o._make 	= make
+	o._model 	= model or "Undefined"
+	o._year 	= year or 2020
 
 	return o
 end
 
 function Car:print()
-	print(string.format("%d %-12s - %-12s", self.year, self.make, self.model))
+	print(string.format("%d %-12s - %-12s", self._year, self._make, self._model))
+end
+
+-- Accessor for model year
+function Car:year()
+	return self._year
 end
