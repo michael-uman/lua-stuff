@@ -1,11 +1,6 @@
 
 
-Car = {
-	_make = "",
-	_model = "",
-	_year = 2020,
-}
-
+Car = {}
 
 function Car:new(make, model, year)
 	local o = {}
@@ -26,4 +21,12 @@ end
 -- Accessor for model year
 function Car:year()
 	return self._year
+end
+
+function Car:make()
+	return self._make
+end
+
+function Car:model()
+	return self._model
 end
